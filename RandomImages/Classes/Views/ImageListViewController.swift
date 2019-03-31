@@ -46,7 +46,7 @@ class ImageListViewController: UIViewController, ImageListView {
 	private func setupTableView() {
 		Observable.just(presenter.images).bind(to: tableView.rx
 			.items(cellIdentifier: String(describing: ImageListTableViewCell.self), cellType: ImageListTableViewCell.self)) { [weak self] row, element, cell in
-				cell.number = row
+				cell.number = row + 1
 				cell.title = self?.presenter.getTitle(forCellAt: row)
 				cell.picture = nil
 				self?.presenter.getImage(forCellAt: row)
